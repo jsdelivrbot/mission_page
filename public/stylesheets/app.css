@@ -1,0 +1,42 @@
+i.icon{
+    
+    font-size: 2em;
+}
+
+.container.main{
+    margin-top: 7.0em;
+}
+
+.main-padding{
+	padding: 80px 50px;
+}
+
+.icon-padding{
+	padding-top: 10px;
+
+}
+
+.button-padding{
+	padding-top: 2em;
+}
+
+.mission-details{
+	padding-top: 1em;
+	font-size: 1.3em;
+
+}
+
+.padding-1em{
+	padding-top: 1em;
+}
+
+.right-text{
+	float: right;
+}
+
+#deleteform{
+    display: inline;
+}
+
+
+

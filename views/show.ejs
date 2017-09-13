@@ -1,0 +1,57 @@
+<% include ./partials/header %>
+
+
+
+<div class="ui main text container segment">
+    <div class="ui huge header">
+        <%= mission.title %>
+    </div>
+    <div class="ui top attached">
+        <div class="item">
+            <img class="ui centered medium rounded image" src="<%= mission.image %>">
+        </div>
+        <div class="content">
+            <div class="ui medium header">
+                <span>
+                    <i class="Hourglass Start icon"></i>
+
+                    <%= mission.date_created.toLocaleDateString("en-UK", 
+                            { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', 
+                            hour: 'numeric', minute: 'numeric' }) %>
+                </span>
+            </div>
+        </div>
+        <div class="content padding-1em">
+            <div class="ui medium header">
+                <span>
+                    <i class="Hourglass End icon"></i>
+
+                    <%= mission.date_due.toLocaleDateString("en-UK", 
+                            { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', 
+                            hour: 'numeric', minute: 'numeric' }) %>
+                </span>
+            </div>
+        </div>
+        <div class="description">
+            <p class="mission-details"><%- mission.details %></p>
+        </div>
+
+
+    </div>    
+
+    <div class="button-padding">
+        <a href="/missions/<%= mission._id %>/edit"  class="ui big basic blue button">Edit</a>
+        
+        <form action="/missions/<%= mission._id %>?_method=DELETE" method="POST" id="deleteform">
+               <button class="ui big red inverted button">Delete</button> 
+        </form>
+    </div>
+
+    <!-- Comment Section -->
+
+    <% include ./partials/comment %>
+
+    
+</div>
+
+<% include ./partials/footer %>

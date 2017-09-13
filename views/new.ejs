@@ -1,0 +1,89 @@
+<% include ./partials/header %>
+
+
+<div class = "ui main text container segment">
+    <div class="ui huge header">New Mission</div>
+    <form class="ui form" action="/missions" method="POST">
+        <div class="field">
+            <label>Mission Title</label>
+            <input type="text" name="mission[title]" placeholder="Title" required>
+        </div>
+        <div class="field">
+            <label>Image URL</label>
+            <input type="text" name="mission[image]" placeholder="Image URL (leave blank for default image)">
+        </div>
+        <div class="field">
+            <label>Details</label>
+            <textarea name="mission[details]" required></textarea>
+            <!--<input type="text" name="blog[body]" placeholder="body post goes here">-->
+        </div>
+
+
+
+        <div class="field">
+            <label>Category</label>
+            <select>
+
+                <% missionCategories.forEach(function(category){ %>
+                    <option> <%= category %> </option>
+                <% }); %>
+                
+            </select> 
+        </div>   
+                    
+
+        <div class="field">
+            <label>Due Date</label>
+            <div class="ui calendar" id="example14">
+                <div class="ui input left icon">
+                    <i class="calendar icon"></i>
+                    <input id="duedateid" type="date" name="mission[date_due]" value="" placeholder="Select date/time below" readonly="readonly" required>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="field">
+            <label>Reward/Bounty</label>
+            <input type="text" name="mission[reward]" placeholder="Reward amount" required>
+        </div>
+        <div class="field">
+            <label>Author (not necessary when signed in)</label>
+            <input type="text" name="mission[author]" placeholder="Author name">
+        </div>
+        
+        <input class="ui big basic violet button" type="submit" onClick="return empty()">
+        
+    </form>
+</div>
+
+<script type="text/javascript">
+    
+    $('#example14').calendar({
+      inline: true
+    });
+
+    function empty() {
+        var x;
+        x = document.getElementById("duedateid").value;
+        var y = new Date(x);
+        var today = new Date();
+        // alert(x);
+
+        if (x == "") {
+            alert("Enter a date.");
+            return false;
+        }else if(Date.parse(y) < Date.parse(today)){
+            alert("Enter a valid date. Due date > Today's date.");
+            return false;
+        }else{
+            return true;
+        }
+
+        alert(x < Date());
+
+    }
+
+</script>
+
+<% include ./partials/footer %>
