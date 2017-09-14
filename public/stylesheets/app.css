@@ -32,6 +32,12 @@ i.icon{
 
 .right-text{
 	float: right;
+	padding-right: 1em;
+}
+
+.left-text{
+	float: left;
+	padding-right: 1em;
 }
 
 #deleteform{

@@ -1,11 +1,5 @@
 <% include ./partials/header %>
-
-<script type="text/javascript">
-    String.prototype.trim = function (length) {
-      return this.length > length ? this.substring(0, length) + "..." : this;
-    }
-</script>
-    
+   
 
 <!-- <div class="ui main text container"> -->
 <div class="ui main main-padding">
@@ -15,7 +9,7 @@
         <div class="ui three column grid">
 
             <column class="ui three column">
-            <a href="" class="ui large green header">New Mission</a>
+            <a href="/missions/NewMission" class="ui large green header">New Mission</a>
                 <% missions.forEach(function(mission){ %>
                     <div class="row">
                         <div class="ui segment">
@@ -35,6 +29,7 @@
                                              <%= moment(mission.date_created).fromNow() %>
 
                                         </span>
+                                        
                                     </div>  
 
                                     <div class="meta">
@@ -45,6 +40,8 @@
                                             <%= mission.details.substring(0,50) %>...
                                             
                                         </p>    
+
+                                       
 
                                     <div class="description">
                                         

@@ -5,6 +5,11 @@
 <div class="ui main text container segment">
     <div class="ui huge header">
         <%= mission.title %>
+
+        <span class="right-text">
+             <%= mission.reward %>
+
+        </span>
     </div>
     <div class="ui top attached">
         <div class="item">
@@ -31,9 +36,22 @@
                             hour: 'numeric', minute: 'numeric' }) %>
                 </span>
             </div>
+        </div>        
+        <div class="content padding-1em">
+            <div class="ui medium header">
+                <span>
+                    <i class="Money icon"></i>
+
+                    <%= mission.reward %>
+                </span>
+            </div>
         </div>
         <div class="description">
             <p class="mission-details"><%- mission.details %></p>
+        </div>
+
+        <div class="description">
+            <p class="mission-details"><%- mission.category %></p>
         </div>
 
 
@@ -44,6 +62,12 @@
         
         <form action="/missions/<%= mission._id %>?_method=DELETE" method="POST" id="deleteform">
                <button class="ui big red inverted button">Delete</button> 
+        </form>        
+    </div>
+
+    <div class="button-padding">
+        <form action="/missions/<%= mission._id %>?_method=PUT" method="POST" id="acceptMission">
+               <button class="ui big green inverted button" type="submit">Accept Mission</button> 
         </form>
     </div>
 

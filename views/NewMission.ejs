@@ -1,0 +1,50 @@
+<% include ./partials/header %>
+
+
+    
+
+<!-- <div class="ui main text container"> -->
+<div class="ui main main-padding">
+    
+    <div class="ui huge centered header">The deal is here.</div>
+
+            <a href="/missions/NewMission" class="ui large green header">New Mission</a>
+                <% nM.forEach(function(mission){ %>
+                    <div class="ui grid">
+                        <div class="row">
+                        
+                            <div class="two wide column ui small basic button left-text">
+                                <a class="header" href="/missions/<%= mission._id %>"><%= mission.title %></a>
+                            </div>
+                            <span class="ui small basic button left-text">
+                                <i class= "Angle Double Right small icon"></i>
+                                <%= mission.details.substring(0,200) %>
+                            </span>
+                            <span class="ui small basic button right-text">
+                                <a href="/missions/<%= mission._id %>"> Seal the Deal</a>
+                            </span>  
+
+                            <span class="ui small basic button right-text">
+                                 <i class="Money small icon"></i>
+                                 <%= mission.reward %>
+                            </span>  
+
+                            <span class="ui small basic button right-text">
+                                <i class="Hourglass End small icon"></i>
+                                 <%= moment(mission.date_due).fromNow() %>
+                            </span>
+
+                            <span class="ui small basic button right-text">
+                                <i class="Hourglass Start small icon"></i>
+                                 <%= moment(mission.date_created).fromNow() %>
+                            </span>
+                        </div>
+                    </div>    
+                <% }) %>
+    </div>   
+</div> 
+    
+    
+
+
+<% include ./partials/footer %>
