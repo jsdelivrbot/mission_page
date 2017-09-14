@@ -81,6 +81,20 @@ app.get("/missions/NewMission", function(req, res){
 
 });
 
+app.get("/missions/OngoingMission", function(req, res){
+	Mission.find({status: "ONGOING"}, function(err, ogM){
+    		// console.log(nM);
+	        if(err){
+	            console.log("ERROR!");
+	        }else{
+	 
+
+            res.render("OngoingMission", {ogM: ogM, moment:moment});
+        }
+    });  
+
+});
+
 //INDEX
 app.get("/missions", function(req, res){
 

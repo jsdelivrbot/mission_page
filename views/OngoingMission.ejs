@@ -10,9 +10,9 @@
 <!-- <div class="ui main text container"> -->
 <div class="ui main main-padding">
     
-    <div class="ui huge centered header">The deal is here.</div>
+    <div class="ui huge centered header">The deal is on.</div>
 
-        <a href="/missions/NewMission" class="ui large green header">New Mission</a>
+        <a href="/missions/NewMission" class="ui large blue header">Ongoing Mission</a>
         <p></p>
         <!-- <br class="padding-1em"> -->
         <table id="missiontable" class="ui sortable single line table">
@@ -23,12 +23,12 @@
                   <th>Start</th>
                   <th>End</th>
                   <th>Reward</th>
-                  <th>Onz!</th>
+                  <th>Hunter</th>
                 </tr>
             </thead>
             <tbody>
                 
-                <% nM.forEach(function(mission){ %>
+                <% ogM.forEach(function(mission){ %>
                 <tr>
                     <td class="">
                         <a class="header ui ribbon label" href="/missions/<%= mission._id %>"><%= mission.title %></a>
@@ -55,7 +55,7 @@
                     <!-- <td class="ui small basic button"> -->
                     <td class="selectable">
                         <a href="/missions/<%= mission._id %>"> 
-                            <i class="Handshake small icon"></i> Seal the Deal
+                            <i class="Handshake small icon"></i> HunterNameGoesHere
                         </a>
                     </td>  
                 </tr>
