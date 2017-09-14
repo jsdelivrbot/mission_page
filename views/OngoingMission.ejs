@@ -12,7 +12,7 @@
     
     <div class="ui huge centered header">The deal is on.</div>
 
-        <a href="/missions/NewMission" class="ui large blue header">Ongoing Mission</a>
+        <a href="/missions/OngoingMission" class="ui large blue header">Ongoing Mission</a>
         <p></p>
         <!-- <br class="padding-1em"> -->
         <table id="missiontable" class="ui sortable single line table">
@@ -31,11 +31,11 @@
                 <% ogM.forEach(function(mission){ %>
                 <tr>
                     <td class="">
-                        <a class="header ui ribbon label" href="/missions/<%= mission._id %>"><%= mission.title %></a>
+                        <a class="header ui ribbon label" href="/missions/<%= mission._id %>"><%= mission.title.substring(0,30) %></a>
                     </td>
                     <td>
                         <i class= "Angle Double Right small icon"></i>
-                        <%= mission.details.substring(0,200) %>
+                        <%= mission.details.substring(0,50) %>
                     </td>
                     <td>
                         <i class="Hourglass End small icon"></i>
@@ -49,13 +49,13 @@
 
                     <td>
                          <i class="Money small icon"></i>
-                         <%= mission.reward %>
+                         <%= mission.reward.substring(0,15) %>
                     </td>  
 
                     <!-- <td class="ui small basic button"> -->
                     <td class="selectable">
                         <a href="/missions/<%= mission._id %>"> 
-                            <i class="Handshake small icon"></i> HunterNameGoesHere
+                            <i class="Handshake small icon"></i> HunterNameGoesHere+HunterLevel.substring(0,15)
                         </a>
                     </td>  
                 </tr>

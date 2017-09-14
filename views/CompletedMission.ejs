@@ -10,36 +10,25 @@
 <!-- <div class="ui main text container"> -->
 <div class="ui main main-padding">
     
-    <div class="ui huge centered header">The deal is here.</div>
+    <div class="ui huge centered header">The deal is done.</div>
 
-        <a href="/missions/NewMission" class="ui large green header">New Mission</a>
-<!--         <div class="ui three column grid">
-            <column class="ui three column center aligned grid">
-                <a href="/missions/NewMission" class="ui large green header">New Mission</a>
-            </column>
-            <column class="ui three column center aligned grid">
-                <a href="/missions/OngoingMission" class="ui large blue header">Ongoing Mission</a>
-            </column> 
-            <column class="ui three column center aligned grid">
-                <a href="/missions/CompletedMission" class="ui large pink header">Completed Mission</a>
-            </column>
-        </div>         -->
-
+        <a href="/missions/CompletedMission" class="ui large pink header">Completed Mission</a>
+        <p></p>
         <!-- <br class="padding-1em"> -->
         <table id="missiontable" class="ui sortable single line table">
             <thead>
                 <tr>
-                  <th class="three wide">Mission</th>
-                  <th class="five wide">Details</th>
-                  <th class="two wide">Start</th>
+                  <th>Mission</th>
+                  <th>Details</th>
+                  <th>Start</th>
                   <th>End</th>
                   <th>Reward</th>
-                  <th>Onz!</th>
+                  <th>Hunter</th>
                 </tr>
             </thead>
             <tbody>
                 
-                <% nM.forEach(function(mission){ %>
+                <% cM.forEach(function(mission){ %>
                 <tr>
                     <td class="">
                         <a class="header ui ribbon label" href="/missions/<%= mission._id %>"><%= mission.title.substring(0,30) %></a>
@@ -66,7 +55,7 @@
                     <!-- <td class="ui small basic button"> -->
                     <td class="selectable">
                         <a href="/missions/<%= mission._id %>"> 
-                            <i class="Handshake small icon"></i> Seal the Deal
+                            <i class="Handshake small icon"></i> HunterNameGoesHere+HunterLevel.substring(0,15)
                         </a>
                     </td>  
                 </tr>

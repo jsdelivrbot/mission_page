@@ -95,6 +95,21 @@ app.get("/missions/OngoingMission", function(req, res){
 
 });
 
+app.get("/missions/CompletedMission", function(req, res){
+	Mission.find({status: "COMPLETED"}, function(err, cM){
+    		// console.log(nM);
+	        if(err){
+	            console.log("ERROR!");
+	        }else{
+	 
+
+            res.render("CompletedMission", {cM: cM, moment:moment});
+        }
+    });  
+
+});
+
+
 //INDEX
 app.get("/missions", function(req, res){
 
@@ -199,7 +214,7 @@ app.get("/missions/:id", function(req, res){
 //     // res.send("YOU HAVE REACHED THE DESTROY ROUTE");
 // })
 
-app.listen(3001, function(){
-    console.log("server is running!");
+app.listen(app.get('port'), function(){
+    console.log("server is running on port ", app.get('port'));
     
 });
