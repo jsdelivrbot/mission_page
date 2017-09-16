@@ -11,6 +11,7 @@ var moment = require('moment');
 
 // APP CONFIG
 mongoose.connect("mongodb://localhost/missions");
+app.set('port', (process.env.PORT || 5000));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -218,3 +219,8 @@ app.listen(app.get('port'), function(){
     console.log("server is running on port ", app.get('port'));
     
 });
+
+// app.listen(3001, function(){
+//     console.log("server is running on port ", 3001);
+    
+// });

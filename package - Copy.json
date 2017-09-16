@@ -2,16 +2,16 @@
   "name": "the_missions",
   "version": "1.0.0",
   "description": "the_missions v1",
-  "engines": {
-    "node": "6.11.1"
-  },
-
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "node index.js"
   },
-  "author": "JY",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "async": "^2.5.0",
     "body-parser": "^1.18.0",
@@ -21,16 +21,5 @@
     "method-override": "^2.3.9",
     "moment": "^2.18.1",
     "mongoose": "^4.11.10"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/junyitt/mission_page"
-  },
-  "keywords": [
-    "node",
-    "heroku",
-    "express"
-  ],
-  "license": "MIT"
+  }
 }
-
