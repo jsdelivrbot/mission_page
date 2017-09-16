@@ -9,8 +9,8 @@
         <div class="ui three column grid">
 
             <column class="ui three column">
-            <a href="/missions/NewMission" class="ui large green header">New Mission</a>
-                <% missions.forEach(function(mission){ %>
+            <a href="/NewMission" class="ui large green header">New Mission</a>
+                <% nM.forEach(function(mission){ %>
                     <div class="row">
                         <div class="ui segment">
                             <div class="item">
@@ -37,7 +37,7 @@
                                     </div>
 
                                         <p>
-                                            <%= mission.details.substring(0,50) %>...
+                                            <%= mission.details.substring(0,40) %>...
                                             
                                         </p>    
 
@@ -62,8 +62,8 @@
             </column>   
 
             <column class="ui three column">
-            <a href="/missions/OngoingMission" class="ui large blue header">Ongoing Mission</a>
-                <% missions.forEach(function(mission){ %>
+            <a href="/OngoingMission" class="ui large blue header">Ongoing Mission</a>
+                <% ogM.forEach(function(mission){ %>
                         <div class="row">
                             <div class="ui segment">
                                 <div class="item">
@@ -107,8 +107,8 @@
             </column>
 
             <column class="ui three column">
-            <a href="missions/CompletedMission" class="ui large pink header">Completed Mission</a>
-                <% missions.forEach(function(mission){ %>
+            <a href="/CompletedMission" class="ui large pink header">Completed Mission</a>
+                <% cM.forEach(function(mission){ %>
                         <div class="row">
                             <div class="ui segment">
                                 <div class="item">
