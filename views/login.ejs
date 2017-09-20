@@ -1,0 +1,22 @@
+<% include ./partials/header %>
+
+<div class="ui main text container">
+    <div class="ui huge centered header">
+        Login
+    </div>    
+    <div class="ui top attached">
+        <form action="/login" method="POST">
+            <div class="content">
+                <input type="text" name="username" placeholder="username">
+            </div>  
+            <div class="content">
+                <input type="password" name="password" placeholder="password">
+            </div>
+
+            <input class="ui big basic blue button" type="submit">
+        </form>
+    </div>
+
+</div>
+
+<% include ./partials/footer %>

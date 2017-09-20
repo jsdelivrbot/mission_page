@@ -40,40 +40,7 @@ router.get("/",function(req,res){
    		var missions = cM;
      	res.render("index", {missions: missions, nM: nM, ogM: ogM, cM: cM, moment:moment});
    });
-
-
 });
-
-// router.get("/", function(req, res){
-
-// 	// missions.$where({status: "NEW"})
-// 	// var newMission = Mission.find().where({status: 'NEW'})
-// 	// var missions = Mission.find({}, function(err, value){
-// 	// 		return(value);
-// 	// });  	
-// 	// var nM = Mission.find({status: "NEW"}, function(err, value){
-// 	// 		return(value);
-// 	// }); 
-// 	// var ogM = Mission.find({status: "ONGOING"}, function(err, value){
-// 	// 		return(value);
-// 	// }); 	
-// 	// var cM = Mission.find({status: "COMPLETED"}, function(err, value){
-// 	// 		return(value);
-// 	// }); 
-
-
-// 	// res.render("index", {missions: missions, nM: nM, ogM: ogM, cM: cM, moment:moment});
-
-//     Mission.find({}, function(err, missions){
-// 		// console.log(nM);
-//         if(err){
-//             console.log("ERROR!");
-//         }else{
-//         	res.render("index", {missions: missions, moment:moment});
-//         	// res.render("index", {missions: missions, nM: nM, ogM: ogM, cM: cM, moment:moment});
-//     	}
-//     });  
-// });
 
 // NEW ROUTE
 router.get("/new", function(req, res){
@@ -84,10 +51,20 @@ router.get("/new", function(req, res){
 router.post("/", function(req, res){
     //create blog
     req.body.mission.details = req.sanitize(req.body.mission.details);
+	var author = {
+		id: req.user._id,
+		username: req.user.username
+	};
+	req.body.mission.status = "NEW";
 
 
+	var newMission = req.body.mission;
+	newMission["author"] = author;
+	// newMission.items.push(req.body.mission);
+
+	console.log(newMission);
     // req.body.mission.image = "https://12obtk2jn55z2ec8wk2hgcfw2-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/Mission.png";
-    req.body.mission.status = "NEW";
+    
     Mission.create(req.body.mission, function(err, newMission){
         if(err){
             res.render("new");
@@ -130,6 +107,17 @@ router.put("/:id", function(req, res){
           }
     })
 });
+
+router.delete("/:id", function(req, res){
+    Mission.findByIdAndRemove(req.params.id, function(err){
+          if(err){
+              res.redirect("/missions");
+          } else{
+              res.redirect("/missions");
+          }
+    })
+});
+
 
 
 

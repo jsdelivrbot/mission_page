@@ -9,6 +9,11 @@ var express = require("express"),
     moment = require('moment');
 
 // var async = require('async');
+// IMPORT MONGOOSE MODEL
+var Mission = require("./models/mission");
+var User = require("./models/user");
+var Comment = require("./models/comment");
+
 
 // APP CONFIG
 mongoose.connect("mongodb://localhost/missions");
@@ -19,15 +24,30 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
 
+// PASSPORT CONFIGURATION
+app.use(require("express-session")({
+    secret: "hello world",
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.use(function(req,res,next){
+    res.locals.currentUser = req.user;
+    next();
+});
+
 // ROUTES
 var missionRoutes = require("./routes/missions")
 // var commentRoutes = require("./routes/comments")
 var indexRoutes = require("./routes/index")
 
-// IMPORT MONGOOSE MODEL
-var Mission = require("./models/mission");
-var User = require("./models/user");
-var Comment = require("./models/comment");
 
 app.use("/", indexRoutes);
 app.use("/missions", missionRoutes);
@@ -41,6 +61,7 @@ app.use("/missions", missionRoutes);
 app.get("/", function(req, res){
     res.redirect("/missions");
 });
+
 
 
 

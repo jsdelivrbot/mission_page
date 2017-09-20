@@ -5,7 +5,6 @@
 <div class="ui main main-padding">
     
     <div class="ui huge centered header">Be the deal. Hunt the deal.</div>
-    
         <div class="ui three column grid">
 
             <column class="ui three column">
@@ -34,17 +33,17 @@
 
                                     <div class="meta">
                                         
-                                    </div>
+                                        </div class="description">
 
-                                        <p>
-                                            <%= mission.details.substring(0,40) %>...
+                                            <p>
+                                                <%= mission.details.substring(0,40) %>...
+                                                
+                                            </p>    
+
+                                           
+
+                                        <div class="description">
                                             
-                                        </p>    
-
-                                       
-
-                                    <div class="description">
-                                        
                                     </div>
                                     <div class="extra">
                                         <a class="ui floated basic violet button" href="/missions/<%= mission._id %>">
@@ -155,7 +154,5 @@
     
 </div>    
     
-    
-
 
 <% include ./partials/footer %>

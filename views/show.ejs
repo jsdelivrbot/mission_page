@@ -5,6 +5,12 @@
 <div class="ui main text container">
     <div class="ui huge header">
         <%= mission.title %>
+    </div>  
+     <div class="ui huge">
+        <i class="User Checkered icon"></i><%= mission.author.username %>
+    </div>  
+    <div class="ui huge">
+        <i class="Flag Checkered icon"></i><%= mission.status %>
     </div>
     <div class="ui top attached">
         <div class="item">
@@ -61,17 +67,25 @@
     </div>    
 
     <div class="button-padding">
-        <a href="/missions/<%= mission._id %>/edit"  class="ui big basic blue button">Edit</a>
+        <a href="/missions/<%= mission._id %>/edit"  class="ui big inverted yellow button">Edit</a>
         
         <form action="/missions/<%= mission._id %>?_method=DELETE" method="POST" id="deleteform">
                <button class="ui big red inverted button">Delete</button> 
-        </form>        
+        </form>               
     </div>
 
     <div class="button-padding">
-        <form action="/missions/<%= mission._id %>?_method=PUT" method="POST" id="acceptMission">
-               <button class="ui big green inverted button" type="submit">Accept Mission</button> 
-        </form>
+        <% if(mission.status == "NEW"){%>
+            <form action="/missions/<%= mission._id %>?_method=PUT" method="POST" id="acceptMission">
+                <input type="hidden" name="mission[status]" value="ONGOING">
+                <button class="ui big green inverted button" type="submit">Accept Mission</button> 
+            </form>
+        <% }else if(mission.status == "ONGOING"){ %>
+            <form action="/missions/<%= mission._id %>?_method=PUT" method="POST" id="deleteform">
+                <input type="hidden" name="mission[status]" value="COMPLETED">
+                <button class="ui big blue inverted button">Mark as Completed</button> 
+            </form>  
+        <% } %>    
     </div>
 
     <!-- Comment Section -->
