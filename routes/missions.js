@@ -52,8 +52,8 @@ router.post("/", function(req, res){
     //create blog
     req.body.mission.details = req.sanitize(req.body.mission.details);
 	var author = {
-		id: req.user._id,
-		username: req.user.username
+      	id: req.user._id,
+      	username: req.user.username
 	};
 	req.body.mission.status = "NEW";
 
