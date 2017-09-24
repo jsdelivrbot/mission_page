@@ -3,156 +3,61 @@
 
 <!-- <div class="ui main text container"> -->
 <div class="ui main main-padding">
-    
-    <div class="ui huge centered header">Be the deal. Hunt the deal.</div>
-        <div class="ui three column grid">
+    <div class="ui huge centered header"><a href="/NewMission">New Mission</a></div>
+        <div class="ui four column grid">
+            <% nM.forEach(function(mission){ %>
+                <div class="column">
+                    <div class="ui segment">
+                        <div class="item">
+                            <div class="content">
+                                <a class="header" href="/missions/<%= mission._id %>"><%= mission.title %></a>
+                                
+                                <div class="meta segment">
+                                    <span><%= mission.date_created.toLocaleDateString("en-UK", 
+                                            { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }) 
+                                    %></span>    
+                                    <span class="right-text">
+                                         <%= moment(mission.date_created).fromNow() %>
 
-            <column class="ui three column">
-            <a href="/NewMission" class="ui large green header">New Mission</a>
-                <% nM.forEach(function(mission){ %>
-                    <div class="row">
-                        <div class="ui segment">
-                            <div class="item">
-                              <!--   <div class="ui small image">
-                                    <img src="<%= mission.image %>">
-                                </div> -->
-                                <div class="content">
+                                    </span>
+
+                                </div>  
+
+                                <div class="meta">
                                     
-                                    <a class="header" href="/missions/<%= mission._id %>"><%= mission.title %></a>
-                                    
-                                    <div class="meta segment">
-                                        <span><%= mission.date_created.toLocaleDateString("en-UK", 
-                                                { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }) 
-                                        %></span>    
-                                        <span class="right-text">
-                                             <%= moment(mission.date_created).fromNow() %>
-
-                                        </span>
-
-                                    </div>  
-
-                                    <div class="meta">
+                                    </div class="description">
+                                        <p>
+                                            <%= mission.details.substring(0,40) %>...   
+                                        </p>    
+                                    <div class="description">
                                         
-                                        </div class="description">
-
-                                            <p>
-                                                <%= mission.details.substring(0,40) %>...
-                                                
-                                            </p>    
-
-                                           
-
-                                        <div class="description">
-                                            
-                                    </div>
-                                    <div class="extra">
-                                        <a class="ui floated basic violet button" href="/missions/<%= mission._id %>">
-                                            Read more <i class="right chevron small icon"></i>
-                                            
-                                            
-                                        </a>
-                                    </div>
+                                </div>
+      <!--                           <div class="extra">
+                                    <a class="ui floated basic violet button bounty" href="/missions/<%= mission._id %>">
+                                        Read more <i class="right chevron small icon"></i>           
+                                    </a>
+                                </div>  
+ -->
+                                <div class="extra">
+                                    <a class="ui floated basic violet button bounty" href="#">
+                                        Read more <i class="right chevron small icon"></i>           
+                                    </a>
                                 </div>
                             </div>
-                        </div>    
-
-                    </div>
-                <% }) %>
-            </column>   
-
-            <column class="ui three column">
-            <a href="/OngoingMission" class="ui large blue header">Ongoing Mission</a>
-                <% ogM.forEach(function(mission){ %>
-                        <div class="row">
-                            <div class="ui segment">
-                                <div class="item">
-                                  <!--   <div class="ui small image">
-                                        <img src="<%= mission.image %>">
-                                    </div> -->
-                                    <div class="content">
-                                        
-                                        <a class="header" href="/missions/<%= mission._id %>"><%= mission.title %></a>
-                                        
-                                        <div class="meta">
-                                            <span><%= mission.date_created.toLocaleDateString("en-UK", 
-                                                    { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }) 
-                                            %></span>    
-                                        </div>  
-
-                                        <div class="meta">
-                                            <span>
-                                                 <%= moment(mission.date_created).fromNow() %>
-
-                                            </span>
-                                        </div>
-
-
-                                        <div class="description">
-                                            
-                                        </div>
-                                        <div class="extra">
-                                            <a class="ui floated basic violet button" href="/missions/<%= mission._id %>">
-                                                Read more <i class="right chevron small icon"></i>
-                                                
-                                                
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>    
-
                         </div>
-                    <% }) %>
-            </column>
-
-            <column class="ui three column">
-            <a href="/CompletedMission" class="ui large pink header">Completed Mission</a>
-                <% cM.forEach(function(mission){ %>
-                        <div class="row">
-                            <div class="ui segment">
-                                <div class="item">
-                                  <!--   <div class="ui small image">
-                                        <img src="<%= mission.image %>">
-                                    </div> -->
-                                    <div class="content">
-                                        
-                                        <a class="header" href="/missions/<%= mission._id %>"><%= mission.title %></a>
-                                        
-                                        <div class="meta">
-                                            <span><%= mission.date_created.toLocaleDateString("en-UK", 
-                                                    { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }) 
-                                            %></span>    
-                                        </div>  
-
-                                        <div class="meta">
-                                            <span>
-                                                 <%= moment(mission.date_created).fromNow() %>
-
-                                            </span>
-                                        </div>
-
-
-                                        <div class="description">
-                                            
-                                        </div>
-                                        <div class="extra">
-                                            <a class="ui floated basic violet button" href="/missions/<%= mission._id %>">
-                                                Read more <i class="right chevron small icon"></i>
-                                                
-                                                
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>    
-
-                        </div>
-                    <% }) %>
-            </column>
-
-        </div>       
-    
+                    </div>    
+                </div>
+            <% }) %>
+        </div>
+    </div>       
 </div>    
     
+
+<script type="text/javascript">
+    $(document).ready(function(){
+     $('.bounty').click(function(){
+        $('#modaldiv').modal('show');    
+     });
+});
 
 <% include ./partials/footer %>

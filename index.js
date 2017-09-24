@@ -17,9 +17,12 @@ var Comment     = require("./models/comment");
 
 
 // APP CONFIG
-var url = process.env.DATABASEURL || "mongodb://localhost/missions"
-mongoose.connect(url);
-app.set('port', (process.env.PORT || 5000));
+var tempurl = "mongodb://tempguy:temp123@ds147864.mlab.com:47864/temp_mission"
+var url = process.env.DATABASEURL || tempurl || "mongodb://localhost/missions"
+mongoose.connect(url); 
+    console.log(url);
+
+app.set('port', (process.env.PORT || 2000));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));

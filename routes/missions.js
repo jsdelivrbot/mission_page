@@ -6,13 +6,16 @@ var async = require('async');
 var Mission = require("../models/mission");
 var Comment = require("../models/comment");
 
-// var middleware = require("../middleware") //auto require index.js inside the dir 
+var middleware = require("../middleware") //auto require index.js inside the dir 
 
+
+// PARAMETERs
 var missionCategories = ["Buy and Deliver", "Delivery Only", "Sell for me!", "Check something for me!", "Answer my questions!", "Others"];
 var status_list = ["NEW", "ONGOING", "COMPLETED"];
 
+
 //INDEX
-router.get("/",function(req,res){
+router.get("/", middleware.isLoggedIn, function(req,res){
    var nM;
    var ogM;
    var cM;
@@ -43,7 +46,7 @@ router.get("/",function(req,res){
 });
 
 // NEW ROUTE
-router.get("/new", function(req, res){
+router.get("/new", middleware.isLoggedIn, function(req, res){
     res.render("new", {missionCategories: missionCategories});
 })
 

@@ -1,3 +1,7 @@
+# The Mission:
+
+https://themission.herokuapp.com/
+
 # Next improvement:
 
 
@@ -10,11 +14,10 @@
 
 ## UI change to bounty style ~ (cowboy style)
 
-
-##Top NavBar 
+### Top NavBar 
 - top right, logout (icon door out)
 
-## Left side navbar (tabs)
+### Left side navbar (tabs)
 - Post New Mission
 - Accepted Mission
 - Past Mission
