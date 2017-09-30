@@ -3,6 +3,16 @@
 	border-radius: 30%;
 }
 */
+
+.mission-post{
+	border: solid;
+	border-color: rgb(249, 213, 134);
+	margin: 20px 20px;
+	height: 100px;
+	/*min-height: 100%;*/
+}
+
+
 i.icon{
     
     font-size: 2em;

@@ -1,55 +1,87 @@
 <html>
     <head>
         <title>The Missions</title>
-        <link rel="stylesheet" style="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">
-        <link rel="stylesheet" style="text/css" href="/stylesheets/app.css">
-        <link href="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.css" rel="stylesheet" type="text/css" />
+<!--         <link rel="stylesheet" style="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css"> -->
+       
+      <!--   <link href="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.semanticui.min.css">
+ -->
+
+ <!--         <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
+ -->
+       <!--  <script src="https://cdn.datatables.net/1.10.16/js/dataTables.semanticui.min.js" type="text/javascript"></script>
+ -->
+
+  <link rel="stylesheet" style="text/css" href="/stylesheets/app.css">
+
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/left_navbar.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/samrayner/bootstrap-side-navbar/gh-pages/assets/stylesheets/navbar-fixed-side.css"> -->
+
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
-        <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
 
-        <script src="https://cdn.datatables.net/1.10.16/js/dataTables.semanticui.min.js" type="text/javascript"></script>
+        <style type="text/css">
+             
 
+        </style>
 
     </head>
     
     <body>
-        <!--<p>FROM THE HEADER FILE!</p>-->
-        <div class="ui fixed inverted menu">
-            <div class="ui container">
-                <div class="header item"><i class="code icon"></i>The Missions</div>
-                <a href="/missions" class="item">Home</a>
-                <a href="/missions/new" class="item">Post Mission</a>
-            </div>
-            <div class="right menu">
-                <a href="#" class="item" id="test">test</a>
-                <% if(currentUser){  %>
-                        <a href="#" class="item">Welcome, <%= currentUser.username %></a>
-                        <a href="/logout" class="item">Logout</a>
-                <%  }else{ %>
+        <div class="navbar navbar-inverse navbar-fixed-left">
+          <a class="navbar-brand" href="#">Brand</a>
+          <ul class="nav navbar-nav">
+           <li><a href="/new"><i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i></a></li>
+           <li><a href="/new"><i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i></a></li>
+           <li><a href="/new"><i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i></a></li>
+           <li><a href="/new"><i class="fa fa-handshake-o fa-2x" aria-hidden="true"></i></a></li>
+           <li><a href="#">Link3</a></li>
+           <li><a href="#">Link4</a></li>
+           <li><a href="#">Link5</a></li>
+          </ul>
+        </div>
 
-                        <a href="/signup" class="item">Sign Up</a>
-                        <a href="/login" class="item">Login</a>
-                <%  } %>
+
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-head">
+                    <a class="navbar-brand" href="#">HEAD</a> 
+                </div>
+                <ul class="nav navbar-nav">                
+                   <li><a href="#">Link2</a></li>
+                   <li><a href="#">Link3</a></li>
+                   <li><a href="#">Link4</a></li>
+                  
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="">Welcome, User!</a></li>
+                    <li><a href="#"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a></li>
+                </ul>
+
+            </div>
+          
+        </div>
+
+     
+
+        <div class="container pad-body">
+            <div class="row ">
+               <h2>Left side Navigation bar (Fixed)</h2>
+               <h2>Left side Navigation bar (Fixed)</h2>
+               
+               <p>Left side Navigation</p>
+
 
             </div>
         </div>
 
 
-
-    
-<div id="modaldiv" class="ui modal">
-    <h1>Test</h1>
-</div>
-
-
-<script type="text/javascript">
-    $(document).ready(function(){
-     $('#test').click(function(){
-        $('#modaldiv').modal('show');    
-     });
-});
 </script>

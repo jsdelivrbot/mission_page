@@ -15,7 +15,7 @@ var status_list = ["NEW", "ONGOING", "COMPLETED"];
 
 
 //INDEX
-router.get("/", middleware.isLoggedIn, function(req,res){
+router.get("/", function(req,res){
    var nM;
    var ogM;
    var cM;

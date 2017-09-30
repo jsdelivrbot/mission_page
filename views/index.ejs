@@ -2,6 +2,32 @@
    
 
 <!-- <div class="ui main text container"> -->
+
+<div class="container pad-body">
+    <div class="row ">
+       <h2>New Mission</h2>
+    </div>
+
+    <div class="row">
+        <% nM.forEach(function(mission, k){ %>
+            <div class="container col-sm-4">
+                <div class="mission-post">
+                    <a class="header" href="/missions/<%= mission._id %>"><%= mission.title %></a>
+                    <span><%= mission.date_created.toLocaleDateString("en-UK", 
+                                            { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }) 
+                            %>            
+                    </span>    
+                    <span class="right-text">
+                         <%= moment(mission.date_created).fromNow() %>
+                    </span>
+                </div>
+            </div>         
+        <%}) %>
+    </div>
+</div>
+
+
+
 <div class="ui main main-padding">
     <div class="ui huge centered header"><a href="/NewMission">New Mission</a></div>
         <div class="ui four column grid">
