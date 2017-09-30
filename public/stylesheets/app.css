@@ -3,7 +3,9 @@
 	border-radius: 30%;
 }
 */
-
+.pad-body-form{
+	padding: 120px 100px;
+}
 
 .modal {
   text-align: center;

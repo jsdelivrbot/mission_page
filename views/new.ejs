@@ -1,5 +1,88 @@
 <% include ./partials/header %>
 
+<form class="pad-body-form form-horizontal" action='' method="POST">
+  <fieldset>
+    <div id="legend">
+      <legend class="">Post A New Mission</legend>
+    </div>
+    <div class="control-group">
+      <!-- Username -->
+      <label class="control-label" for="username">Mission Title</label>
+      <div class="controls">
+        <input type="text" name="mission[title]" placeholder="" class="input-xlarge" required>
+        <p class="help-block">Mission title (not more than 40 characters)</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- Desc -->
+      <label class="control-label" for="desc">Descriptions</label>
+      <div class="controls">
+        <textarea name="mission[details]" placeholder="" required></textarea>
+        <p class="help-block">Write about your mission</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- Category-->
+      <label class="control-label" for="category">Category</label>
+      <div class="controls">
+        <input type="text" id="category" name="mission[category]" placeholder="" class="input-xlarge">
+        <p class="help-block">Category e.g. Buy/Sell/Delivery/Errand etc.</p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Reward-->
+      <label class="control-label" for="reward">Reward</label>
+      <div class="controls">
+        <input type="text" id="reward" name="mission[reward]" placeholder="" class="input-xlarge">
+        <p class="help-block">Reward e.g. RM 5.00</p>
+      </div>
+    </div>
+ 
+ 
+    <div class="control-group">
+        <!-- due date -->
+      <label class="control-label"  for="due_date">Due Date</label>
+      <div class="controls">
+        <input type="date" id="datepicker" class="input-xlarge" name="mission[due_date]">
+        <!-- <input type="date" id="due_date" name="mission[date_due]" placeholder="" class="input-xlarge"> -->
+        <p class="help-block">Give a deadline of the mission</p>
+      </div>
+    </div>
+ 
+ <div style="overflow:hidden;">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-8">
+                <input type='text' id="" class="input-xlarge">
+                <div id="datetimepicker12"></div>
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker12').datetimepicker({
+                inline: true,
+                sideBySide: true
+            });
+        });
+    </script>
+</div>
+
+
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <button class="btn btn-success">Submit</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+
+
 
 <!-- <div class = "ui main main-padding text container segment"> -->
 <div class = "ui main text container">
@@ -57,6 +140,13 @@
         
     </form>
 </div>
+
+<!-- <script type="text/javascript">
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
+ -->
 
 <script type="text/javascript">
     

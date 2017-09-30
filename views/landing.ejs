@@ -8,10 +8,7 @@
         <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
           <link rel="stylesheet" style="text/css" href="/stylesheets/app.css">
 
-
-
-
-<link rel="stylesheet" type="text/css" href="/stylesheet/login.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/login.css">
 
 
 <!-- <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/samrayner/bootstrap-side-navbar/gh-pages/assets/stylesheets/navbar-fixed-side.css"> -->
@@ -58,8 +55,8 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    ×</button>
+      <!--           <a href="/" type="button" class="close btn" data-dismiss="modal" aria-hidden="true">
+                    ×</a> -->
                 <h4 class="modal-title" id="myModalLabel">
                     Login/Registration
             </div>
@@ -169,8 +166,6 @@
                                     <div class="col-sm-10">
                                         <button type="submit" class="btn btn-primary btn-sm">
                                             Save & Continue</button>
-                                        <button type="button" class="btn btn-default btn-sm">
-                                            Cancel</button>
                                     </div>
                                 </div>
                                 </form>
@@ -203,11 +198,20 @@
 
 
 <script type="text/javascript">
-    $(document).ready(function(){
+$(document).ready(function(){
      $('#myModal').click(function(){
         $('#myModal').modal('show');    
      });
 });
+
+// $("#modal .close").click()
+// $(document).ready(function(){
+//      $('close').click(function(){
+//         $('#myModal').modal('hide');    
+//      });
+// });
+
+
 </script>
 
 
