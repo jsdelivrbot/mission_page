@@ -51,16 +51,19 @@ router.get("/CompletedMission", function(req, res){
 
 //USER AUTHENTICATION
 // show register form
-router.get("/signup", function(req, res){
-    res.render("signup");
-});
+// router.get("/signup", function(req, res){
+//     res.render("signup");
+// });
 
 router.post("/signup", function(req, res){
     var newUser= new User({username: req.body.username});
+    console.log(req.body.password);
+    console.log(req.body.username);
     User.register(newUser, req.body.password, function(err, user){
             if(err){
                 console.log(err);
-                return res.render("signup");
+                // var relogin = false;
+                return res.redirect("/");
             }
                 passport.authenticate("local")(req, res, function(){
                     res.redirect("/missions");
@@ -69,14 +72,14 @@ router.post("/signup", function(req, res){
 });
 
 //show login
-router.get("/login", function(req,res){
-    res.render("login"); 
-});
+// router.get("/login", function(req,res){
+//     res.render("login_register"); 
+// });
 
 router.post("/login", passport.authenticate("local", 
     {
         successRedirect: "/missions",
-        failureRedirect: "/login"
+        failureRedirect: "/"
     }), function(req,res){   
     
 });
@@ -84,7 +87,7 @@ router.post("/login", passport.authenticate("local",
 //logout route
 router.get("/logout", function(req,res){
     req.logout();
-    res.redirect("/missions");
+    res.redirect("/");
 });
 
 function isLoggedIn(req,res, next){

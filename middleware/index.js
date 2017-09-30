@@ -11,6 +11,13 @@ middlewareObj.isLoggedIn = function(req,res, next){
 	res.redirect("/login");
 };
 
+middlewareObj.isLoggedInLanding = function(req,res, next){
+	if(req.isAuthenticated()){
+		return next();
+	}
+	res.render("landing");
+};
+
 
 middlewareObj.checkMissionOwnership = function(req,res,next){
 	if(req.isAuthenticated()){
