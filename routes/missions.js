@@ -15,7 +15,29 @@ var status_list = ["NEW", "ONGOING", "COMPLETED"];
 
 
 //INDEX
+router.get("/accepted", middleware.isLoggedInLanding, function(req,res){
+  function findUser(obj) { 
+    return obj.accepted_by.username == req.user.username;
+  }
+  var header = "Accepted Mission";
+
+  Mission.find({status:"ONGOING"}).sort('-date_created').exec(function(err,ogM){
+      console.log(ogM);
+      var G = [];
+      ogM.forEach(function(og){
+        // console.log(og);
+        if(og.accepted_by.username == req.user.username){
+          G.push(og);
+        }
+      })
+      res.render("index", {nM: G, moment:moment, header: header});
+
+  });     
+     	
+});
+
 router.get("/", middleware.isLoggedInLanding, function(req,res){
+  var header = "New Mission";
    var nM;
    var ogM;
    var cM;
@@ -32,7 +54,7 @@ router.get("/", middleware.isLoggedInLanding, function(req,res){
            callback(null,allogM);
        })
    },function(callback){
-		Mission.find({status:"COMPLETED"}).sort('-date_created').exec(function(err,allcM){
+    Mission.find({status:"COMPLETED"}).sort('-date_created').exec(function(err,allcM){
            if(err) return callback(err);
            cM = allcM;
            callback(null,allcM);
@@ -40,8 +62,8 @@ router.get("/", middleware.isLoggedInLanding, function(req,res){
 
    }
    ],function(err){
-   		var missions = cM;
-     	res.render("index", {missions: missions, nM: nM, ogM: ogM, cM: cM, moment:moment});
+      var missions = cM;
+      res.render("index", {missions: missions, nM: nM, ogM: ogM, cM: cM, moment:moment, header: header});
    });
 });
 
@@ -100,8 +122,16 @@ router.get("/:id/edit", function(req, res){
     })
 });
 
-// UPDATE ROUTE - particular mission
+// UPDATE ROUTE - particular mission //need authorisation to prevent normal user to do postman and change current "accepted by" user
 router.put("/:id", function(req, res){
+    // var accMission = req.body.mission;
+    // accMission.date_accepted = new Date();
+    // var acc_by = {
+    //     id: req.user._id,
+    //     username: req.user.username
+    // };
+    // accMission.accepted_by = acc_by;
+
     Mission.findByIdAndUpdate(req.params.id, req.body.mission, function(err, foundMission){
           if(err){
               res.redirect("back");

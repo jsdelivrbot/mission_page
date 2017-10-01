@@ -8,14 +8,14 @@ middlewareObj.isLoggedIn = function(req,res, next){
 	if(req.isAuthenticated()){
 		return next();
 	}
-	res.redirect("/login");
+	res.render("landing", {click: true});
 };
 
 middlewareObj.isLoggedInLanding = function(req,res, next){
 	if(req.isAuthenticated()){
 		return next();
 	}
-	res.render("landing");
+	res.render("landing", {click: true});
 };
 
 

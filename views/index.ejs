@@ -2,10 +2,15 @@
    
 
 <!-- <div class="ui main text container"> -->
+<style type="text/css">
+  .small-padding{
+    padding: 0px 3px;
+  }
+</style>
 
 <div class="container pad-body">
     <div class="row ">
-       <a href="" class=""><h2>New Mission</h2></a>
+      <h2><%= header %></h2>
     </div>
 
     <div class="row">
@@ -39,15 +44,41 @@
                       <a class="header" href="/missions/<%= mission._id %>"><h1 class="modal-title"><%= mission.title %></h1></a>
                     </div>
                     <div class="modal-body">
+                      <p>Posted by: <%= mission.author.username %></p>
                       <p><%= mission.date_created.toLocaleDateString("en-UK", 
                                                 { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }) 
                                 %></p>
                       <p>(<%= moment(mission.date_created).fromNow() %>)</p>
+                      <p>Reward: <%= mission.reward %></p>
 
                       <h3>Mission Descriptions:</h3>
                       <p><%= mission.details.substring(0,200)%></p>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer"> 
+                      <% if(mission.author.username != currentUser.username && mission.accepted_by.username != currentUser.username){ %>
+                        <form action="/missions/<%= mission._id %>?_method=PUT" method="POST" id="acceptMission" class="pull-left">
+                            <input type="hidden" name="mission[status]" value="ONGOING">
+                            <input type="hidden" name="mission[accepted_by][_id]" value="<%=currentUser._id%>">
+                            <input type="hidden" name="mission[accepted_by][username]" value="<%=currentUser.username%>">
+                            <input type="hidden" name="mission[date_accepted]" value="<%= new Date()%>">
+                            <button type="submit" class="btn btn-default btn-success">Accept Mission</button>
+                        </form>
+                      <%}else if(mission.author.username == currentUser.username || mission.accepted_by.username == currentUser.username){%>
+                        <form action="/missions/<%= mission._id %>?_method=PUT" method="POST" id="deleteform" class="pull-left small-padding">
+                            <input type="hidden" name="mission[completed].host_verify" value="True">
+                            <input type="hidden" name="mission[completed].host_verify_date" value="<%= new Date()%>">
+                            <button type="submit" class="btn btn-default btn-primary">Mark as Completed</button>
+                        </form>  
+                          
+                      <%}else{%>
+                          <a href="/missions/<%= mission._id %>/edit"  class="btn btn-default btn-large btn-warning pull-left">Edit</a>
+      
+                          <form action="/missions/<%= mission._id %>?_method=DELETE" method="POST" id="deleteform" class="pull-left small-padding">
+                                 <button class="btn btn-default btn-danger">Delete</button> 
+                          </form>  
+                      <%}%>
+
+          
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                   </div>

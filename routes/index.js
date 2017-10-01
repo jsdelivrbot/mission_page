@@ -71,10 +71,10 @@ router.post("/signup", function(req, res){
     });
 });
 
-//show login
-// router.get("/login", function(req,res){
-//     res.render("login_register"); 
-// });
+// show login
+router.get("/login", function(req,res){
+    res.render("login_register"); 
+});
 
 router.post("/login", passport.authenticate("local", 
     {

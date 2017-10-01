@@ -1,3 +1,7 @@
+.navbar-fixed-top{
+  height: 20px;
+}
+
 .navbar-fixed-left {
   width: 70px;
   position: fixed;

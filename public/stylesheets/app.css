@@ -46,9 +46,9 @@
 
 .missionmodal{
 
-	  -webkit-filter: grayscale(50%);
-   -moz-filter: grayscale(50%);
-   filter: grayscale(50%);
+	  -webkit-filter: grayscale(60%);
+   -moz-filter: grayscale(60%);
+   filter: grayscale(60%);
    transition: all 0.5s ease;
 
 
@@ -63,7 +63,7 @@
 	-webkit-filter: grayscale(0%);
    -moz-filter: grayscale(0%);
    filter: grayscale(0%);
-	zoom: 130%;
+	zoom: 130;
 	/*-o-transition: .5s ease-in-out;*/
 	transition: all 0.8s;
 }
@@ -71,6 +71,7 @@
 .mission-post{
 	border: solid;
 	border-color: rgb(249, 213, 134);
+	background-color: rgba(249, 213, 134, 0.7);
 	margin: 10px 0px;
 	height: 170px;
 	padding-top: 5px;

@@ -15,11 +15,15 @@
   <link rel="stylesheet" style="text/css" href="/stylesheets/app.css">
 
 
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">+
+<!-- <link rel="stylesheet" type="text/css" href="/assets/bootstrap/bootstrap.min.css"> -->
+
+
   <link rel="stylesheet" type="text/css" href="/stylesheets/left_navbar.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="/stylesheet/login.css">
+<link href="/assets/bootstrap-datetimepicker.css" rel="stylesheet" media="screen">
 
 
 <!-- <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/samrayner/bootstrap-side-navbar/gh-pages/assets/stylesheets/navbar-fixed-side.css"> -->
@@ -28,7 +32,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+<script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/assets/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 
 
 
@@ -37,10 +43,10 @@
     <body>
 
         <div class="navbar navbar-inverse navbar-fixed-left">
-          <a class="navbar-brand" href="#">Brand</a>
+          <a class="navbar-brand" href="#"></a>
           <ul class="nav navbar-nav">
            <li><a href="/missions/new"><i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i></a></li>
-           <li><a href="/new"><i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i></a></li>
+           <li><a href="/missions/accepted"><i class="fa fa-tasks fa-3x" aria-hidden="true"></i></a></li>
            <li><a href="/new"><i class="fa fa-shopping-cart fa-3x" id="leftshopcart" aria-hidden="true"></i></a></li>
            <li><a href="/new"><i class="fa fa-handshake-o fa-2x" aria-hidden="true"></i></a></li>
            <li><a href="#">Link3</a></li>
@@ -54,7 +60,7 @@
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-head">
-                    <a class="navbar-brand" href="/">TheMission</a> 
+                    <a class="navbar-brand" href="/missions" style="top:5px;font-size:20px">TheMission</a> 
                 </div>
                 <ul class="nav navbar-nav">                
                    <li><a href="#"></a></li>
@@ -63,7 +69,7 @@
                   
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/profile">Welcome, <%=currentUser.username%>!</a></li>
+                    <li><a href="/profile" style="top:5px;font-size:20px">Welcome, <%=currentUser.username%>!</a></li>
                     <li><a href="/logout"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a></li>
                 </ul>
 

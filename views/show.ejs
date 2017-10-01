@@ -2,13 +2,21 @@
 
 
 
-<div class="ui main text container">
+<div class="ui main text container pad-body">
     <div class="ui huge header">
         <%= mission.title %>
     </div>  
      <div class="ui huge">
         <i class="User Checkered icon"></i><%= mission.author.username %>
     </div>  
+
+     <div class="ui huge">
+        Accepted by: <i class="User Checkered icon"></i><%= mission.accepted_by.username %>
+    </div>  
+     <div class="ui huge">
+        Accepted on: <i class="User Checkered icon"></i><%= mission.date_accepted %>
+    </div> 
+
     <div class="ui huge">
         <i class="Flag Checkered icon"></i><%= mission.status %>
     </div>
@@ -32,9 +40,7 @@
                 <span>
                     <i class="Hourglass End icon"></i>
 
-                    <%= mission.date_due.toLocaleDateString("en-UK", 
-                            { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', 
-                            hour: 'numeric', minute: 'numeric' }) %>
+                    <%= mission.date_due %>
                 </span>
             </div>
         </div>        

@@ -44,10 +44,14 @@
 <div id="landing-header">
     <h1>Hunt the Deal</h1>
 
+        <%if(!currentUser){%>
+            <button class="btn btn-lg btn-primary pad-body" data-toggle="modal" data-target="#myModal">
+                Get Started</button>
+        <%}else{%>
+            <a href="/missions" class="btn btn-lg btn-primary pad-body">Get Started</a>
+        <% }%>
 
-        <button class="btn btn-lg btn-primary pad-body" data-toggle="modal" data-target="#myModal">
-            Get Started</button>
-        </div>
+</div>
 
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
@@ -203,13 +207,6 @@ $(document).ready(function(){
         $('#myModal').modal('show');    
      });
 });
-
-// $("#modal .close").click()
-// $(document).ready(function(){
-//      $('close').click(function(){
-//         $('#myModal').modal('hide');    
-//      });
-// });
 
 
 </script>
